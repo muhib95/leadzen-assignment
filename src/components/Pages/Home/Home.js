@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Pagination from "../../Pagination/Pagination";
 
 const Home = () => {
+  // const [p, setP] = useState(1);
   const [users, setUsers] = useState([]);
   const [view, setView] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,11 +16,26 @@ const Home = () => {
   const findUser = (id) => {
     setView(id);
   };
-
+  console.log(users);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const handleCount = () => {
+    setCurrentPage(currentPage - 1);
+    if (currentPage === 1) {
+      setCurrentPage(4);
+    }
+  };
+  const increaseCount = () => {
+    setCurrentPage(currentPage + 1);
+    if (currentPage === 4) {
+      setCurrentPage(1);
+    }
+  };
+  // console.log(p);
+
   return (
     <div>
       <div className=" py-4">
@@ -78,6 +94,8 @@ const Home = () => {
           postPerPage={postsPerPage}
           totalPosts={users.length}
           paginate={paginate}
+          handleCount={handleCount}
+          increaseCount={increaseCount}
         ></Pagination>
       </div>
     </div>
