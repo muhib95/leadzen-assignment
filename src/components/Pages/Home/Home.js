@@ -73,12 +73,13 @@ const Home = () => {
         ))}
         <div></div>
       </div>
-
-      <Pagination
-        postPerPage={postsPerPage}
-        totalPosts={users.length}
-        paginate={paginate}
-      ></Pagination>
+      <div className="flex justify-center">
+        <Pagination
+          postPerPage={postsPerPage}
+          totalPosts={users.length}
+          paginate={paginate}
+        ></Pagination>
+      </div>
     </div>
   );
 };

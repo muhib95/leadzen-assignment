@@ -6,13 +6,17 @@ const Pagination = ({ postPerPage, totalPosts, paginate }) => {
   for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
     pageNumbers.push(i);
   }
-  console.log(postPerPage, totalPosts);
+
   return (
     <nav>
-      <ul className="pagination">
+      <ul className="pagination btn-group">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
-            <Link onClick={() => paginate(number)} to="" className="page-link">
+            <Link
+              onClick={() => paginate(number)}
+              to=""
+              className="page-link btn"
+            >
               {number}
             </Link>
           </li>
