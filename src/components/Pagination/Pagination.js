@@ -12,20 +12,6 @@ const Pagination = ({
   for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
     pageNumbers.push(i);
   }
-  // const [p, setP] = useState(1);
-  // const handleCount = () => {
-  //   setP(p - 1);
-  //   if (p === 1) {
-  //     setP(4);
-  //   }
-  // };
-  // const increaseCount = () => {
-  //   setP(p + 1);
-  //   if (p === 4) {
-  //     setP(1);
-  //   }
-  // };
-  // console.log(p);
 
   return (
     <nav>
@@ -36,7 +22,7 @@ const Pagination = ({
           </button>
         </li>
         {pageNumbers.map((number) => (
-          <li key={number} className="page-item">
+          <li key={number} className="page-item ">
             <Link
               onClick={() => paginate(number)}
               to=""

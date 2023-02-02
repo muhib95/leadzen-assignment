@@ -16,7 +16,7 @@ const Home = () => {
   const findUser = (id) => {
     setView(id);
   };
-  console.log(users);
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
@@ -34,7 +34,6 @@ const Home = () => {
       setCurrentPage(1);
     }
   };
-  // console.log(p);
 
   return (
     <div>
@@ -74,14 +73,46 @@ const Home = () => {
                       className="btn btn-primary"
                       onClick={() => setView(0)}
                     >
-                      Hidden
+                      Hidden Details
                     </button>
                   )}
                 </div>
               </div>
               {view === user.id && (
                 <div className="border-solid border-2 border-sky-500 bg-slate-300">
-                  Details
+                  <div>
+                    <h2 className="text-center font-bold">Details</h2>
+                    <div className="flex p-5">
+                      <div>
+                        <div>
+                          <h2 className="font-bold">Contact Person</h2>
+                          <p>{user.name}</p>
+                        </div>
+                        <div>
+                          <h2 className="font-bold">Email</h2>
+                          <p>{user.email}</p>
+                        </div>
+                        <div>
+                          <h2 className="font-bold">Phone</h2>
+                          <p>{user.phone}</p>
+                        </div>
+                      </div>
+                      <div className="ml-6">
+                        <div>
+                          <h2 className="font-bold">Address</h2>
+                          <p>{user.address.suite} </p>
+                        </div>
+                        <div>
+                          <h2 className="font-bold">Street</h2>
+                          <p>{user.address.street} </p>
+                        </div>
+                        <div>
+                          <h2 className="font-bold">City</h2>
+                          <p>{user.address.city} </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
